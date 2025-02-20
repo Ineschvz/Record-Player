@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+24&family=Jacquarda+Bastarda+9&display=swap');
+
+svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    animation: none;  /* Start with no animation */
+}
+
+/* Spin animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add spinning animation when playing class is added */
+#record-container svg.playing {
+    animation: spin 8s linear infinite;
+}
+
+/* Start background animation only when playing */
+body:not(.playing) {
+    background: radial-gradient(circle, #0215c5, #6e399d, #f28d27);
+    background-size: 200% 200%;
+    animation: none;  /* No animation by default */
+}
+
+/* Ripple animation for the body */
+@keyframes ripple {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Apply ripple animation when playing class is added to body */
+body.playing {
+    animation: ripple 1s linear infinite;
+    background: radial-gradient(circle, #0215c5, #6e399d, #f28d27);
+    background-size: 200% 200%;
+    animation: none;
+}
+
+#record-container {
+    display: inline-block;
+    margin: 50px;
+    position: relative;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#play-button {
+    display: block;
+    margin: 30px auto;
+    padding: 20px 40px;
+    background-color: #c1580d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Jacquard 24", serif;
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 4em;
+    text-align: center;
+    color: #fff;
+    font-family: "Jacquard 24", serif;
+    font-weight: 400;
+    font-style: normal;
+}
